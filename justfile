@@ -40,7 +40,8 @@ editjust:
     nvim ./justfile
 
 clean:
-    rm ./dist -Force -Confirm:$false
+    Remove-Item ./dist -Force -Recurse -Confirm:$false
+    ls
 
 build: 
     go build -a -ldflags '-extldflags "-static" -s -w' -o "dist/neko-windows-amd64.exe"
